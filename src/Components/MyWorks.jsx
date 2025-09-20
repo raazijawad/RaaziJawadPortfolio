@@ -15,7 +15,7 @@ const MyWorks = () => {
                 {EXPERIENCES.map((experience, index) => (
                     <div
                         key={index}
-                        className='mb-8 flex flex-wrap lg:justify-center gap-8 outline-neutral-800 py-4 rounded-2xl transform transition-transform duration-500 ease-in-out hover:scale-103 hover:bg-neutral-900/50 px-4 cursor-pointer'
+                        className='mb-8 flex flex-wrap lg:justify-center gap-8 outline-neutral-800 py-4 rounded-2xl transform transition-transform duration-500 ease-in-out hover:scale-105 hover:bg-neutral-900/50 px-4 cursor-pointer'
                         onClick={() => handleClick(experience.url)}
                     >
                         <div className='w-full lg:w-1/4'>
@@ -28,14 +28,18 @@ const MyWorks = () => {
                         <div className='w-full max-w-xl lg:w-3/4'>
                             <h6 className='mb-2 font-semibold'>{experience.role}</h6>
                             <p className='mb-4 text-neutral-400'>{experience.description}</p>
-                            {experience.technologies.map((tech, index) => (
-                                <span
-                                    key={index}
-                                    className='mr-2 mt-4 rounded-full bg-neutral-900 px-2 lg:px-4 py-1 lg:text-small font-medium text-purple-800'
-                                >
-                                    {tech}
-                                </span>
-                            ))}
+
+                            {/* Technologies badges */}
+                            <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
+                                {experience.technologies.map((tech, index) => (
+                                    <span
+                                        key={index}
+                                        className='rounded-full bg-neutral-900 px-2 lg:px-4 py-1 lg:text-small font-medium text-purple-800 text-center'
+                                    >
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 ))}
